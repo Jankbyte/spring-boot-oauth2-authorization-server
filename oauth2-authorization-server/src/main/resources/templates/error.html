@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/content/images/spring-logo.png">
+    <title>Error</title>
+    <link href="/content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/content/css/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="app-bar navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/content/images/spring-logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> OAuth2 Authorization server
+        </a>
+    </nav>
+    <div class="container">
+      <div class="col-md-auto">
+        <h1>An error has occurred...</h1>
+        <p>There seems to be a problem with the page you requested (<span th:text="${path}"></span>).</p>
+        <p th:text="${'The status code is ' + status + ', which means that the page was ' + error + '.'}"></p>
+        <p th:text="${'Further details: ' + message + '.'}"></p>
+      </div>
+    </div>
+    <script src="/content/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

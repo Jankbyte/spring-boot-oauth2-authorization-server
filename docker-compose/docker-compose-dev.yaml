@@ -1,0 +1,18 @@
+services:
+  authorization_server_db:
+    container_name: "authorization_server_dev_db"
+    image: postgres:16.1
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: "groovy"
+      POSTGRES_PASSWORD: "groovy123"
+      POSTGRES_DB: "authorization_server_dev"
+  session_cache:
+    container_name: "redis_session_cache"
+    image: redis:7.2.4
+    restart: always
+    command: redis-server --requirepass "secureredis"
+    ports:
+      - 6380:6379

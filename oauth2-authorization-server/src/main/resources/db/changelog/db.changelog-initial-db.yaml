@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial-db
+      dbms: 'postgresql'
+      author: jankbyte
+      changes:
+        - sqlFile:
+            path: "db/changelog/sql/initdb/schema.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/initdb/insert-stored-procedures.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/initdb/insert-scopes.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/initdb/insert-authorities.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/initdb/insert-access-token-types.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/initdb/insert-grant-types.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/initdb/insert-authentication-methods.sql"
+            splitStatements: false
+      rollback:
+        - sqlFile:
+            path: "db/changelog/sql/initdb/drop-all.sql"
+  - changeSet:
+      id: intitial-db-accounts
+      author: jankbyte
+      contextFilter: 'dev'
+      dbms: 'postgresql'
+      changes:
+        - sqlFile:
+            path: "db/changelog/sql/dev/insert-default-accounts.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/dev/insert-default-clients.sql"
+            splitStatements: false

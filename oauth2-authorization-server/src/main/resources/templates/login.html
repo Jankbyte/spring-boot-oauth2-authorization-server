@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/content/images/spring-logo.png">
+    <title th:text="#{page.login.title}">Please, login</title>
+    <link href="/content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/content/css/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="app-bar navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/content/images/spring-logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> OAuth2 Authorization server
+        </a>
+    </nav>
+    <div class="container">
+      <div class="col-md-auto">
+        <div class="form-input">
+          <form th:action="@{/login}" method="POST">
+            <h3 th:text="#{page.login.title}">Please, login</h3>
+            <div class="inputs">
+              <div class="form-group">
+                <label th:text="#{page.login.username}" for="usernameInput">Username</label>
+                <input type="text" name="username" class="form-control" id="usernameInput" aria-describedby="emailHelp" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label th:text="#{page.login.password}" for="passwordInput">Password</label>
+                <input type="password" name="password" class="form-control" id="passwordInput" placeholder="Password">
+              </div>
+            </div>
+            <button th:text="#{page.login.submitButton}" id="submitButton" type="submit" class="signin-btn btn btn-primary">Sign in</button>
+            <div th:text="#{page.login.errorLogin}" th:if="${param.error}" class="alert alert-danger" role="alert">Wrong login or password!</div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/content/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

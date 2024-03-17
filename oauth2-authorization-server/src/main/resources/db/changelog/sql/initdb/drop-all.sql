@@ -1,0 +1,2 @@
+DROP SCHEMA oauth2 CASCADE;
+DROP SCHEMA account_data CASCADE;

@@ -1,0 +1,59 @@
+clients:
+  pkce-client:
+    client-name: "My test PKCE client"
+    client-id: "test-pkce-client"
+    client-secret: "mytestpassword"
+    access-token-type-value: OPAQUE 
+    require-authorization-consent: false
+    reuse-refresh-tokens: false
+    required-proof-key: true
+    scopes: ["account.id", "openid"]
+    grant-types: ["AUTHORIZATION_CODE"]
+    authentication-methods: ["NONE"]
+    redirect-urls: ["http://localhost:8080/login/oauth2/code/pkce"]
+    postlogout-urls: ["http://localhost:8080/logout"]
+  device-authorization-test-client:
+    client-name: "My device authorization OAuth2 client"
+    client-id: "grovex"
+    client-secret: "grovex123"
+    access-token-type-value: OPAQUE 
+    require-authorization-consent: true
+    reuse-refresh-tokens: false
+    required-proof-key: false
+    scopes: ["account.id"]
+    grant-types: ["REFRESH_TOKEN", "DEVICE_CODE"]
+    authentication-methods: ["CLIENT_SECRET_POST"]
+    redirect-urls: ["http://localhost:8080/oauth2/accept"]
+    postlogout-urls: ["http://localhost:8080/oauth2/logout"]
+  client-credentials-client:
+    client-name: "My test client_credentials grant client"
+    client-id: "bruce"
+    client-secret: "mytestpassword"
+    access-token-type-value: JWT
+    require-authorization-consent: false
+    reuse-refresh-tokens: false
+    required-proof-key: false
+    scopes: ["CREATE_ACCOUNT", "CREATE_OAUTH_CLIENT", "openid"]
+    grant-types: ["REFRESH_TOKEN", "CLIENT_CREDENTIALS"]
+    authentication-methods: ["CLIENT_SECRET_POST"]
+    redirect-urls: ["http://localhost:8080/oauth2/accept"]
+    postlogout-urls: ["http://localhost:8080/oauth2/logout"]
+  jwt-client-with-consents:
+    client-name: "My test JWT client"
+    client-id: ${spring.security.oauth2.resourceserver.opaque-token.client-id}
+    client-secret: ${spring.security.oauth2.resourceserver.opaque-token.client-secret}
+    access-token-type-value: JWT
+    require-authorization-consent: true
+    reuse-refresh-tokens: false
+    required-proof-key: false
+    scopes: ["account.id", "openid"]
+    grant-types: ["REFRESH_TOKEN", "AUTHORIZATION_CODE"]
+    authentication-methods: ["CLIENT_SECRET_POST"]
+    redirect-urls: ["http://localhost:8080/redirect"]
+    postlogout-urls: ["http://localhost:8080/logout"]
+accounts:
+  default-credentials:
+    name: ${account.credencials.name}
+    password: ${account.credencials.password}
+testcontainers-version:
+  postgresql: "postgres:16.1"
