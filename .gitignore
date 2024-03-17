@@ -1,0 +1,5 @@
+.gradle
+oauth2-authorization-server/build
+oauth2-authorization-server/logs
+.DS_Store
+buildSrc/build

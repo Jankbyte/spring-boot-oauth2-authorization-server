@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: test-data-insert
+      dbms: 'postgresql'
+      author: jankbyte
+      changes:
+        - sqlFile:
+            path: "db/changelog/sql/insert-test-oauth2-clients.sql"
+            splitStatements: false
+        - sqlFile:
+            path: "db/changelog/sql/insert-test-accounts.sql"
+            splitStatements: false

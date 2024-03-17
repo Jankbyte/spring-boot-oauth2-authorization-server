@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: "Spring Boot OAuth2 Authorization Server"
+  liquibase:
+    contexts: ${spring.profiles.active}
+  session:
+    store-type: redis
+  mvc:
+    problemdetails:
+      enabled: true
+  data:
+    redis:
+      password: ${redis.password}
+      host: ${redis.host}
+      port: ${redis.port}
+  security:
+    oauth2:
+      authorizationserver:
+        issuer-url: ${baseUrl}
+        jwt:
+          secret: ${oauth2.resourceserver.jwt.secret}
+      resourceserver:
+        opaque-token:
+          client-id: ${oauth2.resourceserver.opaque.client-id}
+          client-secret: ${oauth2.resourceserver.opaque.client-secret}
+          introspection-uri: ${spring.security.oauth2.authorizationserver.issuer-url}/oauth2/introspect
+        jwt:
+          issuer-uri: ${spring.security.oauth2.authorizationserver.issuer-url}
+  datasource:
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      jdbc:
+        batch_size: 5
+      hibernate:
+        hbm2ddl:
+          charset_name: UTF-8
+server:
+  port: 9009
+  ssl:
+    enabled: true
+    enabled-protocols: TLSv1.2
+    key-store: classpath:jankbyte-sso.jks
+    key-store-password: ${ssl.jks.password}
+    key-store-type: JKS
+    key-alias: jankbyte-sso
