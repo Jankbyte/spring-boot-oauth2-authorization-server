@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 
 @TestConfiguration(proxyBeanMethods = false)
 @Import({
+    TestContainersConfiguration.class,
     TestClientsPropertiesConfiguration.class,
     TestAccountsPropertiesConfiguration.class,
     DatabaseCreatorsExecutor.class
