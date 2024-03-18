@@ -1,6 +1,5 @@
 package ru.jankbyte.spring.oauth2.authorizationserver.automation.oauth2login;
 
-import ru.jankbyte.spring.oauth2.authorizationserver.TestMain;
 import ru.jankbyte.spring.oauth2.authorizationserver.Main;
 import ru.jankbyte.spring.oauth2.authorizationserver.configuration.AutomationTestConfiguration;
 import ru.jankbyte.spring.oauth2.authorizationserver.service.OAuth2RequestService;
@@ -26,7 +25,7 @@ import org.junit.jupiter.api.AfterEach;
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT,
     classes = {
-        TestMain.class, AutomationTestConfiguration.class,
+        Main.class, AutomationTestConfiguration.class,
         OAuth2RequestService.class
     }
 )
