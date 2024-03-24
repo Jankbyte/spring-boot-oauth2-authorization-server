@@ -45,10 +45,5 @@ spring:
           charset_name: UTF-8
 server:
   port: 9009
-  ssl:
-    enabled: true
-    enabled-protocols: TLSv1.2
-    key-store: classpath:jankbyte-sso.jks
-    key-store-password: ${ssl.jks.password}
-    key-store-type: JKS
-    key-alias: jankbyte-sso
+  servlet:
+    context-path: ${server.basepath}
