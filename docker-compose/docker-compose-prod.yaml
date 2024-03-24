@@ -45,8 +45,6 @@ services:
     ports:
       - 9009:9009
     volumes:
-      - "${SSO_STORE_PATH}/nginx-gateway/nginx.conf:/etc/nginx/nginx.conf"
-      - "${SSO_STORE_PATH}/nginx-gateway/cert.p12:/etc/nginx/cert.p12"
-      - "${SSO_STORE_PATH}/nginx-gateway/cert-pass.txt:/etc/nginx/cert-pass.txt"
+      - "${SSO_STORE_PATH}/nginx-gateway/conf.d:/etc/nginx/conf.d"
     links:
       - authorization_server:ssohost
