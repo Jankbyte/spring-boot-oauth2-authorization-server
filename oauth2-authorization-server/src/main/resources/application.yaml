@@ -45,5 +45,4 @@ spring:
           charset_name: UTF-8
 server:
   port: 9009
-  servlet:
-    context-path: ${server.basepath}
+  forward-headers-strategy: FRAMEWORK

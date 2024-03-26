@@ -19,7 +19,7 @@
     <div class="container">
       <div class="col-md-auto">
         <div class="form-authorization-consents">
-          <form name="consent_form" th:action="${postUri}" method="POST">
+          <form name="consent_form" th:action="@{${postUri}}" method="POST">
             <h3 th:text="#{page.consent.title}">Accept authorization consents</h3>
             <div class="client-logo-container">
                 <img th:src="${clientLogoUrl}">

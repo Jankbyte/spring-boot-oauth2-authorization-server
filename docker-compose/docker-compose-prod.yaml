@@ -32,7 +32,6 @@ services:
       REDIS_PORT: "${REDIS_PORT}"
       REDIS_PASSWORD: "${REDIS_PASSWORD}"
       BASE_URL: "${BASE_URL}"
-      SERVER_BASE_PATH: "/sso"
     links:
       - authorization_server_db:postgreshost
       - session_cache:redishost

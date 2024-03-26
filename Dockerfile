@@ -25,5 +25,4 @@ CMD java -DbaseUrl=${BASE_URL} \
     -Ddatasource.password=${DATASOURCE_PASSWORD} \
     -Duser.timezone=UTC \
     -Duser.language=en_US \
-    -Dserver.basepath=${SERVER_BASE_PATH} \
     -jar app.jar
