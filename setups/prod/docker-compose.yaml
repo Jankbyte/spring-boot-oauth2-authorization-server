@@ -32,9 +32,13 @@ services:
       REDIS_PORT: "${REDIS_PORT}"
       REDIS_PASSWORD: "${REDIS_PASSWORD}"
       BASE_URL: "${BASE_URL}"
+      TRUSTSTORE_PATH: "/app/certs/truststore.p12"
+      TRUSTSTORE_PASSWORD: "${TRUSTSTORE_PASSWORD}"
     links:
       - authorization_server_db:postgreshost
       - session_cache:redishost
+    volumes:
+      - "${SSO_STORE_PATH}/certs/cert.p12:/app/certs/truststore.p12"
   gateway:
     container_name: "nginx_gateway"
     image: nginx:1.24.0
@@ -44,6 +48,7 @@ services:
     ports:
       - 9009:9009
     volumes:
+      - "${SSO_STORE_PATH}/certs:/home/certs"
       - "${SSO_STORE_PATH}/nginx-gateway/conf.d:/etc/nginx/conf.d"
     links:
       - authorization_server:ssohost
