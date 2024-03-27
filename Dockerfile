@@ -11,7 +11,8 @@ ENV REDIS_HOST=
 ENV REDIS_PORT=
 ENV REDIS_PASSWORD=
 ENV BASE_URL=
-ENV SERVER_BASE_PATH=
+ENV TRUSTSTORE_PATH=
+ENV TRUSTSTORE_PASSWORD=
 WORKDIR ${WORKDIR_PATH}
 COPY ${APP_JAR_PATH} app.jar
 CMD java -DbaseUrl=${BASE_URL} \
@@ -25,4 +26,6 @@ CMD java -DbaseUrl=${BASE_URL} \
     -Ddatasource.password=${DATASOURCE_PASSWORD} \
     -Duser.timezone=UTC \
     -Duser.language=en_US \
+    -Djavax.net.ssl.trustStore=${TRUSTSTORE_PATH} \
+    -Djavax.net.ssl.trustStorePassword=${TRUSTSTORE_PASSWORD} \
     -jar app.jar
