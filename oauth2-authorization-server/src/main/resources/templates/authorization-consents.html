@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/content/images/spring-logo.png">
+    <link rel="icon" th:href="@{/content/images/spring-logo.png}">
     <title th:text="#{page.consent.title}"></title>
-    <link href="/content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/content/css/styles.css" rel="stylesheet">
+    <link th:href="@{/content/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/content/css/styles.css}" rel="stylesheet">
   </head>
   <body>
     <nav class="app-bar navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="/content/images/spring-logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> OAuth2 Authorization server
+            <img th:src="@{/content/images/spring-logo.png}" width="30" height="30" class="d-inline-block align-top" alt=""> OAuth2 Authorization server
         </a>
     </nav>
     <div class="container">
       <div class="col-md-auto">
         <div class="form-authorization-consents">
-          <form name="consent_form" th:action="${postUri}" method="POST">
+          <form name="consent_form" th:action="@{${postUri}}" method="POST">
             <h3 th:text="#{page.consent.title}">Accept authorization consents</h3>
             <div class="client-logo-container">
-                <img th:src="${clientLogoUrl}">
+                <img th:src="@{${clientLogoUrl}}">
             </div>
             <input name="state" th:value="${param.state}" type="hidden">
             <input name="client_id" th:value="${param.client_id}" type="hidden">
@@ -49,7 +49,7 @@
         </div>
       </div>
     </div>
-    <script src="/content/bootstrap/js/bootstrap.min.js"></script>
+    <script th:src="@{/content/bootstrap/js/bootstrap.min.js}"></script>
     <script>
         function onClickCancel() {
             document.consent_form.reset()

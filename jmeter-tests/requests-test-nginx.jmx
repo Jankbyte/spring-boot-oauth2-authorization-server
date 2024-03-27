@@ -13,7 +13,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="oauth2_server_host" elementType="Argument">
             <stringProp name="Argument.name">oauth2_server_host</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.value">192.168.1.96</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="oauth2_server_port" elementType="Argument">
@@ -23,7 +23,7 @@
           </elementProp>
           <elementProp name="oauth2_server_protocol" elementType="Argument">
             <stringProp name="Argument.name">oauth2_server_protocol</stringProp>
-            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.value">https</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="oauth2_client_redirect_url" elementType="Argument">
@@ -49,16 +49,16 @@
           <elementProp name="oauth2_authorization_code" elementType="Argument">
             <stringProp name="Argument.name">oauth2_authorization_code</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">GDvhlor0eoOMLbmhuXpp9EvXsZZ5m1W9Xfj0YSzSot_uPvBhFWiiq8OMXxQr9c4YKDl4rO5kZRQv3QjEZqKixsr7YGmoK7REtrvM2kMvuqRQ07EQJLW6qP88rKF8uRDz</stringProp>
+            <stringProp name="Argument.value">KTBo9who27b2_iTyhDFsA5nBLj3P2v9ioY87e_qhGX0-x0RXQTJq-2-KgYAlVNxQKhXSwfSq1ndt0s8-obWzSeIELSq8Z60rhL4I-vg_kzwDEUCphf89Oema835Rb83D</stringProp>
           </elementProp>
           <elementProp name="oauth2_access_token" elementType="Argument">
             <stringProp name="Argument.name">oauth2_access_token</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">Eiui_iLCn_lnIhzbdgJ4KgRCg3dM4Gq4jmzvvb332eHjMZJL9PLfITKNZPMK9Zn3xnvrmB7W2m7T7crR44_51qPa2pHqStXamRFJMi95NsyZTeYGtoYsX_pBJ4-4jlUw</stringProp>
+            <stringProp name="Argument.value">8wnB77Tvdaow9q_q_yLUNvFFnMSntBcT6LKg6w9lWmwTJQnoi548QSEbsTamJbJC356iN5aH-ZAoJEgCeTELvfKEV9485_J-QMzH3WACYq6SBFB3nAhEz6BV_NjZ4EM3</stringProp>
           </elementProp>
           <elementProp name="oauth2_refresh_token" elementType="Argument">
             <stringProp name="Argument.name">oauth2_refresh_token</stringProp>
-            <stringProp name="Argument.value">aEfDpy35oJD0C1j0KwFGhNDu4JgMli7CwlCV4Yz_MvpfjNOA5RbvLoWERsylMoqCXn_aJ8gyN4ROOBXzyPs5bJ-xjfs0_Qv3yh6uCkBhqgVE1lVZU2o70U4erNj95JZf</stringProp>
+            <stringProp name="Argument.value">rhiO9B00d108FWBYrypi46sgZsh4w7duwC369RXlNiyVyb__D2k6Io0kbF74GECteqerNGHEleEScjO47ECP2tZ5U4t0cwhj8hNbJsiL8T913S88oWxrlARr3vUs-Cj8</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="openid_token" elementType="Argument">
@@ -343,13 +343,13 @@ vars.put(&quot;clientCredentials&quot;, new String(encodedBytes))
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Open URL" enabled="true">
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Open URL">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
           <stringProp name="cacheKey">true</stringProp>
           <stringProp name="script">String scopes = &quot;${oauth2_scopes}&quot;.replaceAll(&quot;\\s+&quot;, &quot;%20&quot;)
-String requestUrl = String.format(&quot;open ${oauth2_server_protocol}://${oauth2_server_host}:${oauth2_server_port}/oauth2/authorize?response_type=code&amp;client_id=${oauth2_client_id}&amp;state=randomstate12345&amp;scope=%s&amp;redirect_uri=${oauth2_client_redirect_url}&quot;, scopes)
+String requestUrl = String.format(&quot;open ${oauth2_server_protocol}://${oauth2_server_host}:${oauth2_server_port}/sso/oauth2/authorize?response_type=code&amp;client_id=${oauth2_client_id}&amp;state=randomstate12345&amp;scope=%s&amp;redirect_uri=${oauth2_client_redirect_url}&quot;, scopes)
 log.info(&quot;The URL: {}&quot;, requestUrl)
 requestUrl.execute()
 </stringProp>
@@ -395,7 +395,7 @@ requestUrl.execute()
           <stringProp name="HTTPSampler.domain">${oauth2_server_host}</stringProp>
           <stringProp name="HTTPSampler.port">${oauth2_server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">${oauth2_server_protocol}</stringProp>
-          <stringProp name="HTTPSampler.path">/oauth2/token</stringProp>
+          <stringProp name="HTTPSampler.path">/sso/oauth2/token</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -441,7 +441,7 @@ requestUrl.execute()
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -719,7 +719,7 @@ vars.put(&quot;clientCredentials&quot;, new String(encodedBytes))
           <stringProp name="HTTPSampler.domain">${oauth2_server_host}</stringProp>
           <stringProp name="HTTPSampler.port">${oauth2_server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">${oauth2_server_protocol}</stringProp>
-          <stringProp name="HTTPSampler.path">/oauth2/introspect</stringProp>
+          <stringProp name="HTTPSampler.path">/sso/oauth2/introspect</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -737,7 +737,7 @@ vars.put(&quot;clientCredentials&quot;, new String(encodedBytes))
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -1032,7 +1032,7 @@ vars.put(&quot;clientCredentials&quot;, new String(encodedBytes))
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Content-Type</stringProp>
@@ -1045,12 +1045,12 @@ vars.put(&quot;clientCredentials&quot;, new String(encodedBytes))
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="request">
           <intProp name="HTTPSampler.concurrentPool">6</intProp>
           <stringProp name="HTTPSampler.domain">${oauth2_server_host}</stringProp>
           <stringProp name="HTTPSampler.port">${oauth2_server_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">${oauth2_server_protocol}</stringProp>
-          <stringProp name="HTTPSampler.path">/api/v1/security/authorization/${username}</stringProp>
+          <stringProp name="HTTPSampler.path">/sso/api/v1/security/authorization/${username}</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1060,7 +1060,7 @@ vars.put(&quot;clientCredentials&quot;, new String(encodedBytes))
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
