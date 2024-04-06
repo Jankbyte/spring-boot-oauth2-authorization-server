@@ -36,6 +36,7 @@ public class SecurityConfig {
         SecurityConfig.class);
 
     public static final String[] PERMIT_ALL_MATCHERS = {
+        "/api/v1/accounts",
         "/error*", "/content/**", SecurityConfig.LOGIN_PAGE + "*"
     };
 

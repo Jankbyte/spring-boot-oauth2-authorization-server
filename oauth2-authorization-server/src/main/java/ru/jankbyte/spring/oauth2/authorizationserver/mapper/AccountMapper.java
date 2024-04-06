@@ -4,6 +4,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import ru.jankbyte.spring.oauth2.authorizationserver.dto.account.CreateAccountRequest;
 import ru.jankbyte.spring.oauth2.authorizationserver.jpa.model.account.Account;
 import ru.jankbyte.spring.oauth2.authorizationserver.jpa.model.account.Authority;
 
@@ -20,6 +21,12 @@ public class AccountMapper {
             .authorities(authorities)
             .password(account.getPassword())
             .disabled(!account.isEnabled())
+            .build();
+    }
+
+    public Account toAccount(CreateAccountRequest createAccountRequest) {
+        return Account.builder().name(createAccountRequest.name())
+            .password(createAccountRequest.password())
             .build();
     }
 }

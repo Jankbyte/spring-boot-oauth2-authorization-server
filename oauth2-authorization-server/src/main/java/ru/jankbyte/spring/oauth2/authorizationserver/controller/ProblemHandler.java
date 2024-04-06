@@ -16,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestControllerAdvice(assignableTypes = {
-    AuthorizationController.class
+    AuthorizationController.class, AccountController.class
 })
 public class ProblemHandler extends ResponseEntityExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(
