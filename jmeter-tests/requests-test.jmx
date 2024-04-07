@@ -5,6 +5,8 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Settings properties">
@@ -41,27 +43,27 @@
           </elementProp>
           <elementProp name="oauth2_scopes" elementType="Argument">
             <stringProp name="Argument.name">oauth2_scopes</stringProp>
-            <stringProp name="Argument.value">openid profile account.id client.create</stringProp>
+            <stringProp name="Argument.value">openid profile client.create account.create</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="oauth2_authorization_code" elementType="Argument">
             <stringProp name="Argument.name">oauth2_authorization_code</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">GDvhlor0eoOMLbmhuXpp9EvXsZZ5m1W9Xfj0YSzSot_uPvBhFWiiq8OMXxQr9c4YKDl4rO5kZRQv3QjEZqKixsr7YGmoK7REtrvM2kMvuqRQ07EQJLW6qP88rKF8uRDz</stringProp>
+            <stringProp name="Argument.value">nOVl-ex69yoqCRFh6AuEi3N3VdjAQ8S8HeIH6CpwnifxV-XshhocBwkNlBKzqlZ0TEktfABmrvPPmoIUhauh3-DythyKuCemXlzxHKdhZIiojOcdY-Diip4-uEA3efPH</stringProp>
           </elementProp>
           <elementProp name="oauth2_access_token" elementType="Argument">
             <stringProp name="Argument.name">oauth2_access_token</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.value">Eiui_iLCn_lnIhzbdgJ4KgRCg3dM4Gq4jmzvvb332eHjMZJL9PLfITKNZPMK9Zn3xnvrmB7W2m7T7crR44_51qPa2pHqStXamRFJMi95NsyZTeYGtoYsX_pBJ4-4jlUw</stringProp>
+            <stringProp name="Argument.value">pm2VH0xqXRZ11QLI0DybXhcsx_Obwtk9bYrOvfsBYKVQh3M5O8kwT5pvUEfQwd2wKHmqqJQxlGvs0Ur5leSk61IDsuaDYSP4rwKkMbz48J41xjqoB41rY-EQDrET1Unv</stringProp>
           </elementProp>
           <elementProp name="oauth2_refresh_token" elementType="Argument">
             <stringProp name="Argument.name">oauth2_refresh_token</stringProp>
-            <stringProp name="Argument.value">aEfDpy35oJD0C1j0KwFGhNDu4JgMli7CwlCV4Yz_MvpfjNOA5RbvLoWERsylMoqCXn_aJ8gyN4ROOBXzyPs5bJ-xjfs0_Qv3yh6uCkBhqgVE1lVZU2o70U4erNj95JZf</stringProp>
+            <stringProp name="Argument.value">fdhftSMdB6W1rbTi-SQN67ip0l_e7uT7hS9kc-OJAYwiHpp83anyHy3MNxUfF3yoHfKXIxeOygOYcOusUyF5_n2CXNrJAMGRe-206-2N-KddRJS3s0OFCbkG0KJyeNEe</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="openid_token" elementType="Argument">
             <stringProp name="Argument.name">openid_token</stringProp>
-            <stringProp name="Argument.value">eyJraWQiOiJiNTg4ZjQwNi0yZGFjLTQyNjAtYWViZS01NmQwMTIwNGFlZDIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6ImR1a2UiLCJhenAiOiJkdWtlIiwiYXV0aF90aW1lIjoxNzEwMTM4MTg4LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo5MDA5Iiwibmlja25hbWUiOiJhZG1pbiIsImV4cCI6MTcxMDE0MDAxMiwiaWF0IjoxNzEwMTM4MjEyLCJqdGkiOiJiNDVkYzI2My1jMmU0LTRhNzktYjNlMi0zZTQ0NjkyODc5OWIiLCJzaWQiOiI0cHp3cUJPQmFJeFBiTmR2M3Mwd2pGYnkzWnlFY1VtRHhhNkw2S1VFWW9NIn0.AExOjoMR6pVFEqU8rv-yA6y3lgb-ysf1kDJ57RCcW0LiVnq1ETFbqR9i5VSayda9_Rz_f4lJ8Ce1ifzjHIN8k66nx87_5225xdbdHvnd79y2lbQKn2-tmZqPM6QgqsIgP4q61OaRn94j6bp8goZXzVUTvqaJCdS72OB7eexuKDmS1qO6fargnLkjRvOJaOXPAVL5dZuTbzmlJlltr0UvnPps4OW8SL3_Ua6b-pjsi_OkMXyFf5MuT6lBm_6h9lZsr1YG3LHkcC9OdDa3JE2QYUvaRr8YySXuOVV78Ti9j1v88WShF_5k2ORX3raKUr7MhcuGIhpnEa1x6iYS3O5nnw</stringProp>
+            <stringProp name="Argument.value">eyJraWQiOiI5ZjE3MTI3Yi1kZWUyLTRjNDMtYmUwZC1lZmI4MzFkM2I0NDYiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6ImR1a2UiLCJhenAiOiJkdWtlIiwiYXV0aF90aW1lIjoxNzEyNDc1MTQ3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDkiLCJuaWNrbmFtZSI6ImFkbWluIiwiZXhwIjoxNzEyNDc2OTc0LCJpYXQiOjE3MTI0NzUxNzQsImp0aSI6ImNiYThlMDcyLWJlNWEtNGRmNy05MTIyLTI2MWMxMTgwMDNlNSIsInNpZCI6Ii1jNWlZVlJ0MVFZeVYwVlhabzdyRUpkQ21wOThBdTFURThDZmVFWFcwcjQifQ.Xdn6H_mI4AGLED_9AiPbmv2yOfBWTJnWuDfAKBbc82NoMtm-lAz1tkDElzt-F4k35FV1xmd-COzANBB31mh-sgcCHHzOS3Gkrz8Rz-OZZPp76dv1blRpg10Xk00ZtednhKgbbdmka7XhQjXFGdQ8rHPwDklOUhvamrjbOLsDjT1PuAuQg_T08VLiO4qB5YZ9jS3vjTGbOXdEfTkKlnX1pMIWRBfHBoqoErL9LK9Fcxe93yq4_26CT2wtvVrFMCl5NJg_las-wLTdSy98mRWERmguw29ZRZzHTl6-LHZEDOY2UGi6pr33qbIeN45nfsp2Ocd6TuAdDh-hb8opLJIQ6w</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="username" elementType="Argument">
@@ -353,7 +355,7 @@ requestUrl.execute()
 </stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Fake request" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Fake request">
           <stringProp name="TestPlan.comments">Using for just opening web browser by script</stringProp>
           <intProp name="HTTPSampler.concurrentPool">6</intProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -378,7 +380,7 @@ requestUrl.execute()
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Content-Type</stringProp>
@@ -387,7 +389,7 @@ requestUrl.execute()
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Getting tokens" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Getting tokens">
           <stringProp name="TestPlan.comments">Getting refresh &amp;&amp; access token</stringProp>
           <intProp name="HTTPSampler.concurrentPool">6</intProp>
           <stringProp name="HTTPSampler.domain">${oauth2_server_host}</stringProp>
@@ -439,7 +441,7 @@ requestUrl.execute()
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -1383,7 +1385,7 @@ vars.put(&quot;userCredentials&quot;, new String(encodedBytes))
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create account" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create account">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -1399,6 +1401,10 @@ vars.put(&quot;userCredentials&quot;, new String(encodedBytes))
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Content-Type</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer ${oauth2_access_token}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
