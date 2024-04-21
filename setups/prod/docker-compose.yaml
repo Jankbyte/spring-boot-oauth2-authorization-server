@@ -1,7 +1,7 @@
 services:
   authorization_server_db:
     container_name: "authorization_server_db"
-    image: postgres:16.1
+    image: postgres:${POSTGRES_VERSION}
     restart: always
     environment:
       POSTGRES_USER: "${DB_USERNAME}"
@@ -12,12 +12,12 @@ services:
       - "${SSO_STORE_PATH}/pgdata:/var/lib/postgresql/data/pgdata"
   session_cache:
     container_name: "redis_session_cache"
-    image: redis:7.2.4
+    image: redis:${REDIS_VERSION}
     restart: always
     command: redis-server --requirepass "${REDIS_PASSWORD}"
   authorization_server:
     container_name: "oauth2_authorization_server"
-    image: oauth2/authorization-server:1.0
+    image: oauth2/authorization-server:${OAUTH2_SERVER_VERSION}
     restart: always
     depends_on:
       - authorization_server_db
@@ -26,29 +26,30 @@ services:
       DATASOURCE_URL: "jdbc:postgresql://${DB_ADDRESS}/${DB_NAME}"
       DATASOURCE_USERNAME: "${DB_USERNAME}"
       DATASOURCE_PASSWORD: "${DB_PASSWORD}"
-      OAUTH2_CLIENT_ID: "${OAUTH2_CLIENT_ID}"
-      OAUTH2_CLIENT_SECRET: "${OAUTH2_CLIENT_SECRET}"
+      OAUTH2_CLIENT_ID: "${OAUTH2_SERVER_CLIENT_ID}"
+      OAUTH2_CLIENT_SECRET: "${OAUTH2_SERVER_CLIENT_SECRET}"
       REDIS_HOST: "${REDIS_HOST}"
       REDIS_PORT: "${REDIS_PORT}"
       REDIS_PASSWORD: "${REDIS_PASSWORD}"
-      BASE_URL: "${BASE_URL}"
-      TRUSTSTORE_PATH: "/app/certs/truststore.p12"
-      TRUSTSTORE_PASSWORD: "${TRUSTSTORE_PASSWORD}"
+      BASE_URL: "${OAUTH2_SERVER_BASE_URL}"
+      JAVA_OPTS: "-Djavax.net.ssl.trustStore=${OAUTH2_SERVER_TRUSTSTORE_INTERNAL_PATH} -Djavax.net.ssl.trustStorePassword=${OAUTH2_SERVER_TRUSTSTORE_PASSWORD}"
     links:
       - authorization_server_db:postgreshost
       - session_cache:redishost
     volumes:
-      - "${SSO_STORE_PATH}/certs/cert.p12:/app/certs/truststore.p12"
+      - "${NGINX_CERTS_PATH}/cert.p12:${OAUTH2_TRUSTSTORE_INTERNAL_PATH}:ro"
   gateway:
-    container_name: "nginx_gateway"
-    image: nginx:1.24.0
+    container_name: "oauth2_server_gateway"
+    image: nginx:${NGINX_VERSION}
     restart: always
     depends_on:
       - authorization_server
+    environment:
+      OAUTH2_SERVER_PORT: ${OAUTH2_SERVER_EXTERNAL_PORT}
     ports:
-      - 9009:9009
+      - ${OAUTH2_SERVER_EXTERNAL_PORT}:${OAUTH2_SERVER_EXTERNAL_PORT}
     volumes:
-      - "${SSO_STORE_PATH}/certs:/home/certs"
-      - "${SSO_STORE_PATH}/nginx-gateway/conf.d:/etc/nginx/conf.d"
+      - "${NGINX_CERTS_PATH}:/home/certs:ro"
+      - "${NGINX_CONFIGS_PATH}:/etc/nginx/templates:ro"
     links:
-      - authorization_server:ssohost
+      - authorization_server:oauth2-authorization-server
