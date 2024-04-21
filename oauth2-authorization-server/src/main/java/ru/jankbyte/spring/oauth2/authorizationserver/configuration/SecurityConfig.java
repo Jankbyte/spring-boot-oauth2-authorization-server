@@ -1,5 +1,6 @@
 package ru.jankbyte.spring.oauth2.authorizationserver.configuration;
 
+import org.springframework.http.HttpMethod;
 import static org.springframework.http.MediaType.TEXT_HTML;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -76,6 +77,8 @@ public class SecurityConfig {
         return http.securityMatcher(matchersUrl)
             .authorizeHttpRequests(request ->
                 request.requestMatchers(PERMIT_ALL_MATCHERS).permitAll()
+                    .requestMatchers(HttpMethod.POST, "/api/v1/accounts")
+                        .hasAuthority("SCOPE_account.create")
                     .anyRequest().authenticated())
             .oauth2ResourceServer(oauth2 ->
                 oauth2.opaqueToken(withDefaults()))

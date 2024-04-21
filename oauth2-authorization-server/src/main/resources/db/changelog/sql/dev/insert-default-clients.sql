@@ -6,7 +6,7 @@ CALL oauth2.create_client(
     true, false, false, now()::TIMESTAMP, null::TIMESTAMP,
     'http://localhost:8080/redirect'::TEXT,
     'http://localhost:8080/logout'::TEXT,
-    '{"client.create", "openid", "profile", "account.id"}'::VARCHAR[],
+    '{"client.create", "openid", "profile"}'::VARCHAR[],
     '{"CLIENT_CREDENTIALS", "REFRESH_TOKEN", "AUTHORIZATION_CODE"}'::VARCHAR[],
     '{"CLIENT_SECRET_POST", "CLIENT_SECRET_BASIC"}'::VARCHAR[]
 );

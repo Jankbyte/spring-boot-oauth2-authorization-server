@@ -13,9 +13,10 @@ ENV REDIS_PASSWORD=
 ENV BASE_URL=
 ENV TRUSTSTORE_PATH=
 ENV TRUSTSTORE_PASSWORD=
+ENV JAVA_OPTS=
 WORKDIR ${WORKDIR_PATH}
 COPY ${APP_JAR_PATH} app.jar
-CMD java -DbaseUrl=${BASE_URL} \
+CMD java ${JAVA_OPTS} -DbaseUrl=${BASE_URL} \
     -Doauth2.resourceserver.opaque.client-secret=${OAUTH2_CLIENT_SECRET} \
     -Doauth2.resourceserver.opaque.client-id=${OAUTH2_CLIENT_ID} \
     -Dredis.host=${REDIS_HOST} \
@@ -26,6 +27,4 @@ CMD java -DbaseUrl=${BASE_URL} \
     -Ddatasource.password=${DATASOURCE_PASSWORD} \
     -Duser.timezone=UTC \
     -Duser.language=en_US \
-    -Djavax.net.ssl.trustStore=${TRUSTSTORE_PATH} \
-    -Djavax.net.ssl.trustStorePassword=${TRUSTSTORE_PASSWORD} \
     -jar app.jar
